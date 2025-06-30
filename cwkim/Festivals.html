@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festivals in Korea</title>
+    <style>
+@font-face {
+    font-family: 'GapyeongHanseokbong-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/GapyeongHanseokbong-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+              body {
+            font-family: 'GapyeongHanseokbong-Bold', 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('./photo/한지배경1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* Basic Styles */
+        body {
+            
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+        }
+        .logo-container {
+        display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+         
+    }
+        .logo-container h1 {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+        }
+        .logo-container h1 a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 22px;
+    }
+    .menu-bar a:hover {
+            color: #0059b3;
+            border-left: 2px solid #b3000c;
+            padding-left: 16px;
+                     /* 마우스 오버 시 배경색 변경 */
+            border-radius: 5px;
+        }
+        .logo-container img {
+        width: 50px;
+        height:40px;
+        }
+        .logo-container h1, .logo-container img {
+            pointer-events: none;
+        }
+
+
+
+
+        /* Side Menu Bar */
+        .menu-bar {
+            width: 170px;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #333; /* 메뉴 바 배경색 */
+            padding: 10px 20px;
+        }
+        .menu-bar h2 {
+        color: #fff;
+        font-family: 'GapyeongHanseokbong-Bold', serif;
+        font-size: 20px;
+        margin: 0; /* 제목과 로고의 간격 제거 */
+        text-align: center;
+        }
+
+
+        .menu-bar a {
+            color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 10px 0; /* 항목 간의 간격을 동일하게 설정 */
+    padding: 8px 0;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.3s; 
+        }/* 배경색에 마우스 효과 
+        
+
+        /* Main Content Area */
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            width: calc(100% - 220px);
+        }
+
+        /* Section Styles */
+        .section {
+            max-width: 850px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            text-align: center;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .section h2 {
+            font-size: 1.6em;
+            color: #004080;
+            margin-bottom: 15px;
+        }
+        .section h3 {
+            font-size: 1em; /* Reduced font size for h3 headings */
+            color: #0059b3;
+            margin-top: 20px;
+        }
+
+        /* Image Styles */
+        .main-image {
+            width: 40%; /* Reduced width for images */
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Text content on the right of the image */
+        .text-content {
+            width: 100%;
+           
+            text-align: center;
+        }
+
+        .text-content p {
+            font-size: 1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        #festival {
+            font-size: 1.5em;
+        }
+
+        /* Music Player Styles */
+        .audio-player {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center align */
+            gap: 10px;
+            margin-top: 10px;
+            background-color: #e0e0e0;
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        .audio-player h3 {
+            font-size: 0.7em;
+            margin: 0;
+            color: #004080a0;
+        }
+
+        .audio-player h3 strong {
+            font-weight: bold;
+            color: #004080; /* Bold and highlighted */
+        }
+
+        .audio-player audio {
+            width: 250px; /* Increased width */
+            height: 25px; /* Reduced height */
+            border-radius: 5px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 40px;
+        }
+     
+    </style>
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Myeongjo&family=Noto+Sans+KR&family=Noto+Serif+KR&display=swap" rel="stylesheet">
+<!-- Side Menu -->
+<div class="menu-bar">
+    <div class="logo-container">
+        <img src="./real_mark.png" alt="Korea Highlights Logo">
+        <h1><a href="index.html">Korea Highlights</a></h1>
+        
+    </div>
+    <a href="index.html">Back to Home</a>
+    <a href="#boryeong">Boryeong Mud Festival</a>
+    <a href="#jinju">Jinju Lantern Festival</a>
+    <a href="#andong">Andong Mask Dance Festival</a>
+    <a href="#busan">Busan Fireworks Festival</a>
+</div>
+
+<!-- Main Content Area -->
+<div class="content">
+    <!-- Header Section -->
+    <div class="section">
+        <div class="text-content" id="festival">
+            <h2>Festivals in Korea</h2>
+            <div class="audio-player" style="max-width: 850px;">
+                <h3>Now Playing: Jung Hwa Uhm - <strong>Festival</strong></h3>
+                <audio controls autoplay loop>
+                    <source src="./photo/Festival (Festival).m4a" type="audio/mp4">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+    <!-- Boryeong Mud Festival Section -->
+    <div class="section" id="boryeong">
+        <img src="./photo/보령.jpg" alt="Boryeong Mud Festival" class="main-image">
+        <div class="text-content">
+            <h2>Boryeong Mud Festival</h2>
+            <p>The Boryeong Mud Festival is an annual festival held in Boryeong, a city on South Korea's west coast. This exciting event invites locals and tourists to enjoy mud-based activities like mud slides, mud wrestling, and mud baths. Originally started to promote Boryeong's mud cosmetics, it has grown into a large, international festival attracting thousands each year.</p>
+            <iframe width="100%" height="300" src="https://www.youtube.com/embed/FYvs1sUNfUU?si=f0Nbkx0C1mc6Wru0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Jinju Lantern Festival Section -->
+    <div class="section" id="jinju">
+        <img src="./photo/진주포스터.jpg" alt="Jinju Lantern Festival" class="main-image">
+        <div class="text-content">
+            <h2>Jinju Lantern Festival</h2>
+            <p>The Jinju Lantern Festival commemorates those who sacrificed their lives during the Japanese invasions in the 16th century. Beautiful lanterns light up the Namgang River, creating a mesmerizing view each autumn. Visitors can participate by writing wishes on lanterns and sending them down the river, symbolizing hope and remembrance.</p>
+            <iframe width="100%" height="300" src="https://www.youtube.com/embed/Ih2h0cvP4nw?si=mO0K4gHJB59rkQlD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Andong Mask Dance Festival Section -->
+    <div class="section" id="andong">
+        <img src="./photo/안동.png" alt="Andong Mask Dance Festival" class="main-image">
+        <div class="text-content">
+            <h2>Andong Mask Dance Festival</h2>
+            <p>The Andong Mask Dance Festival is held in Andong and celebrates traditional Korean mask dances. Visitors can enjoy various performances and even participate in mask-making workshops. The festival offers a look into Korea’s historical performance arts and encourages hands-on experiences with traditional crafts.</p>
+            <iframe width="100%" height="300" src="https://www.youtube.com/embed/GXPYMXbszd0?si=qipmNnOopvZzehye" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Busan Fireworks Festival Section -->
+    <div class="section" id="busan">
+        <img src="./photo/불꽃축제.png" alt="Busan Fireworks Festival" class="main-image">
+        <div class="text-content">
+            <h2>Busan Fireworks Festival</h2>
+            <p>Each November, the Busan Fireworks Festival lights up the city’s famous beaches. Spectacular fireworks displays attract visitors from all over the country, offering breathtaking views along the coastline. The festival is a celebration of light, color, and the bustling atmosphere of Busan's nightlife.</p>
+            <iframe width="100%" height="300" src="https://www.youtube.com/embed/QowgjVocrIE?si=ZqNqmS3J-qT6pgIQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Korea Highlights. All Rights Reserved.
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korea Highlights</title>
+    <link rel="icon" href="./real_mark.png"  type="image/png">
+    <style>
+@font-face {
+    font-family: 'GapyeongHanseokbong-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/GapyeongHanseokbong-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+        /* 기본 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            font-family: 'GapyeongHanseokbong-Bold', 'Noto Sans KR', sans-serif;
+        }
+
+        /* 섹션 스타일 */
+        .section {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5em;
+            transition: opacity 1s ease, transform 1s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: translateY(100%);
+            flex-direction: column;
+        }
+
+        /* 현재 활성화된 섹션 */
+        .section.active {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 1;
+        }
+
+        /* 페이지 내용을 중앙에 배치 */
+        .content {
+            position: absolute;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            max-width: 80%;
+        }
+
+        /* 비디오 스타일 */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* SCROLL 텍스트 스타일 */
+        .scroll-text {
+            position: absolute;
+            bottom: 15%;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: rgb(17, 15, 15);
+            z-index: 2;
+        }
+
+        /* 고급스러운 네비게이션 바 스타일 */
+        .navbar {
+            background-color: #333333;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 3;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 로고와 제목 스타일 */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .logo-container img {
+            width: 50px;
+            height:40px;
+            margin-right: 10px;
+        }
+
+      
+        .logo-container h1 {
+            font-size:20px;
+            color: rgba(255, 255, 255, 0.538);
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo-container h1 a {
+            text-decoration: none; /* 밑줄 제거 */
+            color: inherit; /* 부모 요소의 색상을 그대로 사용 */
+        }
+
+        /* 메뉴 정렬 및 오른쪽 이동 */
+        .navbar ul {
+            list-style-type: none;
+            margin-left: 100px;
+            padding: 0;
+            display: inline-flex;
+        }
+
+        .navbar ul li {
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 800;
+            padding: 8px 15px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+        color: #1d4bd4;
+        font-weight: 800;
+    }
+
+        /* 드롭다운 메뉴 스타일 */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333333;
+            border-bottom: ;
+            min-width: 100px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            z-index: 4;
+            padding: 10px 0;
+        }
+
+        .dropdown-content a {
+            color: D8C4B6;
+            padding: 10px 15px;
+            display: block;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            color:#1d4bd4;
+        }
+
+        .navbar ul li:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Final Section 스타일 */
+        .section-final {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 20px;
+            font-size: 0.5em;
+        }
+
+        .section-final h1 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .section-final p {
+            font-size: 0.8em;
+            line-height: 1.5;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .content h1 {
+    font-size:1.8em;
+    font-weight: 900; /* 글자 굵기를 더 두껍게 설정 */
+    text-align: center;
+    color: #213555;
+    letter-spacing: 2px; /* 글자 간격 추가 */
+}
+
+.content p {
+    font-size: 0.8em;
+    font-weight: 700; /* 글자 굵기를 두껍게 설정 */
+    text-align: center;
+    color: rgba(240, 248, 255, 0.788);
+    letter-spacing: 2px; /* 글자 간격 추가 */
+}
+
+    .scroll-text{
+        font-size: 0.7em;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+
+        letter-spacing: 2px; /* 글자 간격 추가 */
+    }
+    .section section-final h1{
+        color:white;
+    }
+    .content h2{
+        font-size: 20px;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Myeongjo&family=Noto+Sans+KR&family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <!-- 상단 네비게이션 메뉴와 로고 및 설명 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="./real_mark.png" alt="Korea Highlights Logo">
+                <h1><a href="index.html"> Korea Highlights</a></h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Traditional_clothes.html">Traditional Clothes</a></li>
+                <li><a href="Korea_cuisine.html">Korea Cuisine</a></li>
+                <li><a href="Festivals.html">Festivals</a></li>
+                <li>
+                    <a href="Travel.html">Travel</a>
+                    <div class="dropdown-content">
+                        <a href="nature_tour.html">Nature Tour</a>
+                        <a href="city_tour.html">City Tour</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="navbar-description">
+            "이 웹페이지는 외국인들이 한국의 문화, 음식, 볼거리 등 다양한 주제를 통해 한국을 쉽게 이해할 수 있도록 돕는 공간입니다." <br>
+            "This webpage is designed to help foreigners easily understand Korea through various topics such as culture, food, and attractions."
+        </div>
+    </header>
+
+    <!-- Section 2: Gyeongbokgung Palace -->
+    <section class="section section2 active">
+        <video src="./photo/[4K Drone ✈] 전지적 서울 시점 4 _ 경복궁 편!.mp4" autoplay muted loop></video>
+        <div class="content">
+            <h1 >Explore Gyeongbokgung Palace</h1>
+            <p>Discover the grandeur of Korea's historic royal palace with breathtaking views.</p>
+        </div>
+        <div class="scroll-text">SCROLL <br> <p style="font-size:0.7em">Scroll one tick at a time.</p> </div>
+    </section>
+
+    <!-- Section 1: Traditional Korean Dance -->
+    <section class="section section1">
+        <video src="./photo/강강술래_home.mp4" autoplay muted loop></video>
+        <div class="content">
+            <h1>Traditional Korean Dance</h1>
+            <p>Experience the beauty of Ganggangsullae, a traditional Korean circle dance.</p>
+        </div>
+        <div class="scroll-text">SCROLL <br> <p style="font-size:0.7em">Scroll one tick at a time.</p> </div>
+    </section>
+
+    <!-- Section 3: Hanbok -->
+    <section class="section section3">
+        <video src="./photo/[코리아인패션] KOREA IN FASHION _ 한복(Hanbok)으로 한국(Korea)을 알리다.mp4" autoplay muted loop></video>
+        <div class="content">
+            <h1>Hanbok - Korea's Traditional Attire</h1>
+            <p>Learn about Hanbok and how it represents the essence of Korean culture.</p>
+        </div>
+        <div class="scroll-text">SCROLL <br> <p style="font-size:0.7em">Scroll one tick at a time.</p> </div>
+    </section>
+
+    <!-- New Final Section: Webpage Description -->
+    <section class="section section-final">
+        <div class="content">
+            <h2>About Korea Highlights <br><br></h2>
+            <p style="color: aliceblue;">"이 웹페이지는 외국인들이 한국의 문화, 음식, 볼거리 등 다양한 주제를 통해 한국을 쉽게 이해할 수 있도록 돕는 공간입니다."</p>
+            <p style="color: aliceblue;">"This webpage is designed to help foreigners easily understand Korea through various topics such as culture, food, and attractions."</p>
+            <p style="color: aliceblue;">Contact us: <a href="mailto:info@koreahighlights.com" style="color: #FFD700;">info@koreahighlights.com</a></p>
+            <p style="color: rgb(124, 152, 177);">&copy; 2024 Korea Highlights. All Rights Reserved.</p>
+        </div>
+    </section>
+
+    <script>
+        let currentSection = 0;
+        const sections = document.querySelectorAll('.section');
+
+        function showSection(index) {
+            sections.forEach((section, idx) => {
+                if (idx === index) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+
+        window.addEventListener('wheel', (event) => {
+            if (event.deltaY > 0) {
+                if (currentSection < sections.length - 1) {
+                    currentSection++;
+                    showSection(currentSection);
+                }
+            } else {
+                if (currentSection > 0) {
+                    currentSection--;
+                    showSection(currentSection);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

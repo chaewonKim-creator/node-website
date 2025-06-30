@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seongsan Ilchulbong (Sunrise Peak)</title>
+    <style>
+@font-face {
+    font-family: 'GapyeongHanseokbong-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/GapyeongHanseokbong-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+     body {
+        font-family: 'GapyeongHanseokbong-Bold', 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('./photo/한지배경1.jpg');
+            /* background-color: rgba(0, 0, 0, 0.1); */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* 로고 스타일 */
+    .logo-container {
+        display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+         
+    }
+    .logo-container h1 {
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: bold;
+        font-family: 'Playfair Display', serif;
+        margin: 0;
+    }
+    .menu-bar h2 {
+    color: #fff;
+    font-family: 'GapyeongHanseokbong-Bold', serif;
+    font-size: 24px;
+    margin: 0; /* 제목과 로고의 간격 제거 */
+    text-align: center;
+}
+
+
+        /* Side Menu Bar */
+        .menu-bar {
+            width: 170px;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #333; /* 메뉴 바 배경색 */
+            padding: 10px 20px;
+        }
+
+        .menu-bar a {
+            color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 10px 0; /* 항목 간의 간격을 동일하게 설정 */
+    padding: 8px 0;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.3s; /* 배경색에 마우스 효과 추가 */
+        }
+        .menu-bar h2 {
+        color: #fff;
+        font-family: 'GapyeongHanseokbong-Bold', serif;
+        font-size: 24px;
+        margin: 0; /* 제목과 로고의 간격 제거 */
+        text-align: center;
+}
+
+.logo-container h1 a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 20px;
+    }
+
+
+        .menu-bar a:hover {
+            color: #0059b3;
+            border-left: 2px solid #b3000c;
+            padding-left: 16px;
+                     /* 마우스 오버 시 배경색 변경 */
+            border-radius: 5px;
+        }
+        .logo-container img {
+        width: 50px;
+        height:40px;
+        }
+        .logo-container h1, .logo-container img {
+            pointer-events: none;
+        }
+
+        /* Main Content Area */
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            width: calc(100% - 220px);
+        }
+
+        /* Section Styles */
+        .section {
+            max-width: 850px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: #004080;
+            margin-bottom: 15px;
+        }
+
+        .section h3 {
+            font-size: 1.4em; /* Reduced font size for h3 headings */
+            color: #004080;
+            margin-top: 20px;
+        }
+
+        .section p {
+            font-size: 1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        /* Image Styles */
+        .main-image, .slide-image {
+            width: 100%;
+            height: 500px; /* Slightly increased height */
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        /* Slider Button Styles */
+        .slider {
+            position: relative;
+        }
+        
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px 20px;
+            color: #333;
+            font-weight: bold;
+            font-size: 23px;
+            border-radius: 3px;
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-50%);
+            transition: background-color 0.3s;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+        }
+
+        /* Activity List Styles */
+        .activity-list li, .tips ul li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            list-style-type: none;
+            text-align: left;
+        }
+
+        .activity-list li::before, .tips ul li::before {
+            content: "•";
+            color: #004080;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Tips Section */
+        .tips {
+            background-color: #e6f2ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 40px;
+        }
+        .audio-player {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align */
+    gap: 10px;
+    margin-top: 10px;
+    background-color: #e0e0e0;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+/* 오디오 플레이어의 텍스트 스타일 */
+.audio-player h3 {
+    font-size: 2em;
+    margin: 0;
+    color: #004080a0;
+}
+
+/* 강조 텍스트 스타일 */
+.audio-player h3 strong {
+    font-weight: bold;
+    color: #004080; /* Bold and highlighted */
+}
+
+/* 오디오 컨트롤 스타일 */
+.audio-player audio {
+    width: 250px; /* Increased width */
+    height: 25px; /* Reduced height */
+    border-radius: 5px;
+}
+    </style>
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Myeongjo&family=Noto+Sans+KR&family=Noto+Serif+KR&display=swap" rel="stylesheet">
+
+<!-- Side Menu -->
+<div class="menu-bar">
+    <div class="logo-container">
+        <img src="./real_mark.png" alt="Korea Highlights Logo">
+        <h1><a href="index.html">Korea Highlights</a></h1>
+        
+    </div>
+    <a href="index.html">Home</a>
+    <a href="Travel.html">Back</a>
+    <a href="#photo-slider">Photos</a>
+    <a href="#details">Details</a>
+    <a href="#features">Activities</a>
+    <a href="#tips">Visitor Tips</a>
+</div>
+
+<!-- Main Content Area -->
+<div class="content">
+    
+
+    <div class="main-content">
+        <div class="section" style="background: #ffffff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 850px; margin: 20px auto; text-align: center;">
+            <div class="text-content" id="festival">
+                <h2 style="font-size: 2em; color: #004080; font-weight: bold; margin-bottom: 20px;">Seongsan Ilchulbong</h2>
+                <div class="audio-player">
+                    <h3 style="font-size: 1.2em; color: #333; margin: 0; line-height: 1.6;">
+                        - The Majestic Sunrise Peak of Jeju Island
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Details Section -->
+    <div class="section" id="details">
+        <p><strong style="color: #004080;">Details:</strong><br> Seongsan Ilchulbong, also known as Sunrise Peak, is a volcanic crater located on the eastern coast of Jeju Island, South Korea. Formed by hydrovolcanic eruptions thousands of years ago, it is now a UNESCO World Heritage Site and one of Jeju Island's most popular tourist destinations. Visitors can enjoy panoramic views of the island and the ocean, especially stunning at sunrise.</p>
+    </div>
+
+    <!-- Photo Section with Slider -->
+    <div class="section" id="photo-slider">
+        <div class="slider">
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <img src="./photo/성산1.jpg" alt="Seongsan Ilchulbong 1" class="slide-image" style="display: block;">
+            <img src="./photo/성산2.jpg" alt="Seongsan Ilchulbong 2" class="slide-image" style="display: none;">
+            <img src="./photo/성산3.jpg" alt="Seongsan Ilchulbong 3" class="slide-image" style="display: none;">
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Activities Section -->
+    <div class="section" id="features">
+        <h3>Unique Activities:</h3>
+        <ul class="activity-list">
+            <li><strong style="color: #004080;">Sunrise Viewing:</strong><br> Climbing to the top of Seongsan Ilchulbong to witness the sunrise is a popular activity. The hike is relatively short and the view of the sunrise over the ocean is truly breathtaking.</li>
+            <li><strong style="color: #004080;">Horseback Riding:</strong><br> Visitors can experience horseback riding along trails near Seongsan Ilchulbong, adding an adventurous touch to their visit.</li>
+            <li><strong style="color: #004080;">Women Divers' Show:</strong><br> Seongsan Ilchulbong is also known for Jeju’s famous haenyeo, or women divers, who perform diving demonstrations. They showcase traditional free-diving techniques used for harvesting seafood.</li>
+            <img src="./photo/성산4.png" alt="Gyeongbokgung Palace Structure" class="main-image" style="width: 80%; height: auto;">
+    </div>
+
+    <!-- Visitor Tips Section -->
+    <div class="section tips" id="tips">
+        <h3>Visitor Tips:</h3>
+        <ul>
+            <li><strong style="color: #004080;">Opening Hours:</strong><br> The site is open year-round, but early morning is the best time to visit for sunrise. Check the local sunrise time for the best experience.</li>
+            <li><strong style="color: #004080;">Weather:</strong><br> Weather can be unpredictable on Jeju Island, so be prepared with suitable clothing and footwear, especially if you plan to hike to the peak.</li>
+            <li><strong style="color: #004080;">Entrance Fee:</strong><br> A small entrance fee is required to access the site, with discounts available for children and seniors.</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Korea Highlights. All Rights Reserved.
+    </div>
+</div>
+
+<script>
+let slideIndex = 0;
+showSlide(slideIndex);
+
+function changeSlide(n) {
+    showSlide(slideIndex += n);
+}
+
+function showSlide(n) {
+    const slides = document.getElementsByClassName("slide-image");
+    
+    if (n >= slides.length) {
+        slideIndex = 0;
+    }
+    if (n < 0) {
+        slideIndex = slides.length - 1;
+    }
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    
+    slides[slideIndex].style.display = "block";
+}
+</script>
+
+</body>
+</html>
